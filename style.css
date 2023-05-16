@@ -1,0 +1,38 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.container{
+    position: relative;
+    display: inline-block;
+    color: white;
+    /*contenerdor de la imagen*/
+}
+.imagen img{
+    max-width: 100%;
+    height: auto;
+}
+.texto{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+footer{
+    position: absolute;
+    bottom: 0; /*lo posicionan en la esquina inferior izquierda del contenedor*/
+    left: 0; /*lo posicionan en la esquina inferior izquierda del contenedor*/
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /*establece un color de fondo */
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media screen and(max-width:820px) {
+.container, .imagen, .texto  {
+    width: auto;
+}    
+}

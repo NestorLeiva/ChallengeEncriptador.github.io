@@ -1,9 +1,17 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url("img/pexels-elīna-arāja-3311382.jpg");
     position: relative;
+    background-image: url("img/pexels-elīna-arāja-3311382.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    /*
+    background-image establece la imagen de fondo.
+    background-size: cover asegura que la imagen cubra todo el contenedor, ajustándose automáticamente según su tamaño.
+    background-position: center posiciona la imagen en el centro del contenedor.
+    background-repeat: no-repeat evita que la imagen de fondo se repita.
+    Con estas propiedades, la imagen de fondo se ajustará de manera responsiva al tamaño del contenedor y mantendrá su relación de aspecto.
+    */
 }
 
 .container {
@@ -68,12 +76,12 @@ textarea {
     /*Caracteristicas del de textarea*/
 }
 
-.labBotton{
+.labBotton {
     padding: 30px;
     display: flex;
     align-items: center;
     /*Propiedades del botton*/
-    
+
 }
 
 .bottom {

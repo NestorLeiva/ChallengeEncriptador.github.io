@@ -13,9 +13,20 @@ function limitarCaracteres() {
         texto = texto.toLowerCase();
         // Convertir todas las letras a minúsculas
         texto = texto.normalize("NFC").replace(/[\u0300-\u036f]/g, "");
-        // Eliminar caracteres especiales y acentos
 
-        // texto = texto.replace(/[^a-z]/g, "");
+        /* La función replace se encarga de reemplazar los caracteres no deseados por una cadena vacía.
+        /g =  es una bandera que se utiliza en JS para indicar que la coincidencia de la expresión regular debe ser global8, es decir, que debe buscar y reemplazar todas las coincidencias
+        Eliminar caracteres especiales y acentos */
+
+        var caracteresInvalidos = texto.match(/[^a-zA-Z0-9]/g);
+        if (caracteresInvalidos) {
+            alert("Se ha ingresado un carácter inválido: " + caracteresInvalidos.join(", "));
+            // Mostrar mensaje de alerta
+        }
+        // Verificar si hay caracteres inválidos
+
+        texto = texto.replace(/[^a-zA-Z0-9]/g, "");
+        // aceptA tanto letras mayúsculas como minúsculas y números, mientras elimina cualquier otro carácter especial y acento
 
         textarea1.value = texto
     })
@@ -25,9 +36,12 @@ utiliza el evento "input", que se activa cuando se produce un cambio en el valor
 La función function() { ... } es el callback o la función de manejo del evento. Es decir, es el código que se ejecutará cuando se dispare el evento "input". Dentro de esta función.
 Cada vez que se produzca un cambio en el valor del textarea, se ejecutará la función definida en el callback. 
 Esto asegura que el texto ingresado se procese y se actualice en el textarea de acuerdo con las condiciones especificadas.
+
+La función normalize("NFD") se utiliza para descomponer los caracteres Unicode que tienen diacríticos en una secuencia de dos caracteres: 
+el carácter base y el diacrítico por separado. 
+Esto significa que los caracteres con acentos, tildes, diéresis u otros diacríticos se descomponen en sus componentes individuales.
+Luego, la expresión regular /[\u0300-\u036f]/g se utiliza para encontrar y reemplazar todos los caracteres diacríticos en el texto.
 */
-
-
 
 document.addEventListener("DOMContentLoaded", limitarCaracteres);
 /* comentario funcion limitar Caracteres

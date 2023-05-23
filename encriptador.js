@@ -1,8 +1,8 @@
 
 function soloLecturaTextarea() {
-    var textarea2 = document.getElementById("textarea2");
+    var textarea = document.getElementById("textResultado");
     // Obtener una referencia al elemento textarea
-    textarea2.readOnly = true;
+    textarea.readOnly = true;
     // Bloquear la opción de escritura
 }
 
@@ -43,6 +43,26 @@ Esto significa que los caracteres con acentos, tildes, diéresis u otros diacrí
 Luego, la expresión regular /[\u0300-\u036f]/g se utiliza para encontrar y reemplazar todos los caracteres diacríticos en el texto.
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", limitarCaracteres);
 /* comentario funcion limitar Caracteres
 controlador de eventos en el evento input. Dentro del controlador de eventos, se obtiene el valor actual del textarea y se realiza el procesamiento necesario.
@@ -50,6 +70,7 @@ Para eliminar los caracteres especiales y los acentos, se utiliza el método nor
 junto con la expresión regular [\u0300-\u036f] para eliminar los caracteres diacríticos. 
 A continuación, se utiliza otra expresión regular [^a-z] para eliminar todos los caracteres que no sean letras minúsculas.
 */
+
 document.addEventListener("DOMContentLoaded", soloLecturaTextarea);
 /* comentario DOM 
 llamado de la funcion para solo lectura

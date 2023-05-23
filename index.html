@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="es">
 
@@ -24,24 +24,31 @@
         </div>
 
         <div class="labGroup">
-            <label for="textarea2">Mensaje Encriptado</label>
-            <textarea id="textarea2"></textarea>
+            <label for="textResultado">Mensaje Encriptado</label>
+            <textarea id="textResultado"></textarea>
         </div>
         <!-- ------------------------------------------------------------------------ -->
-
         <div class="labBotton">
-            <input  value="Encriptar / Desencriptar" type="submit" class="bottom" > 
+            <input value="  Encriptar   " type="button" class="bottom">
+            <input value="   Desencriptar  " type="button" class="bottom">
+            <input value="  Copiar Texto  " type="button" class="bottom">
         </div>
-
+        <!-- ------------------------------------------------------------------------ -->
+        <div class="nota">
+            <p>Nota: <br>
+                Solo se permiten letras y numeros*<br>
+                No estan permitidos los caracteres especiales ni los acentos*<br>
+                Todo texto ingresado en Mayusculas sera convertido a Minusculas automaticamente*<br>
+                
+            </p>
+        </div>
         <!-- ------------------------------------------------------------------------ -->
         <footer>
             <p> &copy Copyright<br>Nestor Leiva<br> 2023</p>
         </footer>
     </section>
-
-
-
-    <script src="encriptador.js"></script> 
+    <!-- ------------------------------------------------------------------------ -->
+    <script src="encriptador.js"></script>
     <!-- referencia al fichero JavaScript 
     // se coloca al final para que cargue todos los elementos-->
 </body>

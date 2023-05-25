@@ -38,27 +38,70 @@ regular debe ser global8, es decir, que debe buscar y reemplazar todas las coinc
 Eliminar caracteres especiales y acentos
 */
 
-function encriptar() { }
-function desencriptar() { }
-function copiar(text) { 
+
+function encriptar() {
+    var textoNormal = document.getElementById("inputText").value
+    var vocales = {
+        "a": "ai",
+        "e": "enter",
+        "i": "imes",
+        "o": "ober",
+        "u": "ufat"
+    } // objeto para definir los String para cada vocal
+    var textoCifrado = "";
+
+    for (var i = 0; i < textoNormal.length; i++) {
+        var char = textoNormal[i];
+
+        if (vocales.hasOwnProperty(char)) {
+            textoCifrado += vocales[char];
+            // Agregar el string correspondiente a la vocal
+        } else {
+            textoCifrado += char;
+            // Mantener el caracter original si no es una vocal
+        }
+
+    }
+    document.getElementById("outputText").value = textoCifrado
+    inputText.value = ""; 
+    /*
+    inputText.value = "";  = limpia el textarea
+    La función hasOwnProperty* es una función incorporada de JavaScript que se 
+    utiliza para determinar si un objeto tiene una propiedad con el 
+    nombre especificado
+    */
+}
+
+function desencriptar() { 
+   
+
+}
+
+
+function copiar(text) {
     var textarea = document.getElementById("outputText");
     textarea.select();
     textarea.setSelectionRange(0, 99999);
+    // Para dispositivos móviles 
 
-    if (document.execCommand("copy")){
+    if (document.execCommand("copy")) {
         alert("Copiado al portapapeles");
-    }else{
+    } else {
         alert("No se pudo copiar. Su navegador actual no es compatible con esta accion")
     }
+
+    /*
+    primero selecciona el texto del textarea y luego intenta copiarlo al portapapeles utilizando document.execCommand("copy"). 
+    Si la copia al portapapeles es exitosa, muestra un mensaje de confirmación.
+    De lo contrario, muestra un mensaje indicando que la copia al portapapeles no es compatible con el navegador.
+    */
 }
+
+
+
 // invocacion de las funciones
 
-limitarCaracteres("inputText")
-limitarCaracteres("outputText")
+limitarCaracteres("inputText");
+limitarCaracteres("outputText");
 
-/* comentario funcion limitar Caracteres
-controlador de eventos en el evento input. Dentro del controlador de eventos, se obtiene el valor actual del textarea y se realiza el procesamiento necesario.
-Para eliminar los caracteres especiales y los acentos, se utiliza el método normalize* 
-junto con la expresión regular [\u0300-\u036f] para eliminar los caracteres diacríticos. 
-A continuación, se utiliza otra expresión regular [^a-z] para eliminar todos los caracteres que no sean letras minúsculas.
-*/
+

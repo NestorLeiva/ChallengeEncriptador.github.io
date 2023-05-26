@@ -52,7 +52,6 @@ function encriptar() {
 
     for (var i = 0; i < textoNormal.length; i++) {
         var char = textoNormal[i];
-
         if (vocales.hasOwnProperty(char)) {
             textoCifrado += vocales[char];
             // Agregar el string correspondiente a la vocal
@@ -63,7 +62,7 @@ function encriptar() {
 
     }
     document.getElementById("outputText").value = textoCifrado
-    inputText.value = ""; 
+    inputText.value = "";
     /*
     inputText.value = "";  = limpia el textarea
     La función hasOwnProperty* es una función incorporada de JavaScript que se 
@@ -72,13 +71,28 @@ function encriptar() {
     */
 }
 
-function desencriptar() { 
-   
+function desencriptar() {
+    var textoCifrado = document.getElementById("outputText").value;
+    var vocales = {
+        "ai": "a",
+        "enter": "e",
+        "imes": "i",
+        "ober": "o",
+        "ufat": "u"
+    } // objeto para definir los String para cada vocal invertidos
 
+    var textoNormal = textoCifrado.replace(/ai|enter|imes|ober|ufat/g, function (match) {
+        return vocales[match]
+    })
+    document.getElementById("inputText").value = textoNormal;
+    document.getElementById("outputText").value = "";
+    /*
+    La función de reemplazo toma cada coincidencia (match) y la utiliza como clave para acceder al valor correspondiente 
+    en el objeto vocales, devolviendo así la vocal original.
+    */
 }
 
-
-function copiar(text) {
+function copiar() {
     var textarea = document.getElementById("outputText");
     textarea.select();
     textarea.setSelectionRange(0, 99999);
@@ -97,7 +111,23 @@ function copiar(text) {
     */
 }
 
+function limpiar() {
+    inputText.value = "";
+    outputText.value = "";
+}
 
+function pegar() {
+
+    try {
+        navigator.clipboard.readText()
+            .then(texto => {
+                const textarea = document.getElementById("outputText");
+                textarea.value = texto;
+            });
+    } catch (error) {
+        alert("Error en el Portapapeles: ", error)
+    }
+}
 
 // invocacion de las funciones
 
